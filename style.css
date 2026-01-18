@@ -204,73 +204,71 @@ footer { background: var(--dark); color: white; padding-top: 60px; margin-top: 6
 .footer-bottom { text-align: center; padding: 25px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; opacity: 0.5; }
 
 /* АДАПТАЦИЯ */
-/* ИСПРАВЛЕНИЯ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ */
+
+@media (max-width: 992px) {
+    .about-layout { grid-template-columns: 1fr; }
+    .about-image { max-width: 500px; margin: 30px auto 0; order: 2; }
+    .about-text { order: 1; }
+}
+
 @media (max-width: 768px) {
-    /* 1. Исправляем карточки товаров и цен */
-    .price-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 30px; /* Увеличиваем расстояние между карточками */
+    /* 1. Навигация и общие элементы */
+    .nav-links, .slider-btn { display: none; }
+    .hero h1 { font-size: 2.2rem; }
+    .contact-layout { grid-template-columns: 1fr; }
+    
+    /* 2. Слайдеры (чтобы фото не были слишком мелкими) */
+    .project-slide { flex: 0 0 85%; }
+    
+    /* 3. КАРТОЧКИ ЦЕН И ТОВАРОВ (Исправление наслоения) */
+    .price-grid { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 25px; 
     }
 
     .price-card {
-        height: auto !important; /* Убираем жесткую высоту */
+        height: auto !important; /* Позволяем блоку растягиваться под текст */
         min-height: auto !important;
-        padding: 25px 20px !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        padding: 30px 20px !important;
+        transform: none !important; /* Убираем масштаб у featured на мобильных */
     }
 
-    /* 2. Исправляем медиа-блок в карточке (фото коры/видео) */
     .card-media {
-        height: 220px !important; /* Устанавливаем адекватную высоту для фото */
-        width: 100% !important;
-        margin-bottom: 20px !important;
+        height: 220px !important; /* Увеличиваем высоту фото для наглядности */
+        margin-bottom: 15px !important;
     }
 
-    /* 3. Предотвращаем наслоение текста на кнопку */
     .price-card p {
-        margin-bottom: 25px !important; /* Создаем запас места перед кнопкой */
+        margin-bottom: 25px !important; /* Создаем отступ перед кнопкой */
         font-size: 1rem;
-        line-height: 1.5;
     }
 
-    .price-card h3 {
-        margin-bottom: 10px;
+    /* 4. БЛОК УХОДА И КНОПКА ПРАЙСА */
+    .maintenance-features-row { 
+        flex-direction: column; 
+        gap: 12px; 
+        align-items: flex-start; 
+        padding-left: 20%; /* Центрируем список визуально */
     }
 
-    .cost {
-        margin: 15px 0 !important;
-    }
-
-    /* 4. Исправляем кнопку "Открыть полный прайс" в блоке ухода */
     .maintenance-footer {
-        margin-top: 30px !important; /* Поднимаем или опускаем для симметрии */
-        padding-bottom: 20px;
-    }
-
-    .maintenance-footer .btn {
-        width: 90%; /* Делаем кнопку удобной для нажатия пальцем */
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    /* 5. Исправляем заголовок, если он слишком крупный */
-    .section-title {
-        font-size: 1.6rem !important;
-        padding: 0 10px;
-        margin-bottom: 30px;
-    }
-}
-
-/* Дополнительная проверка для совсем маленьких экранов (iPhone SE и др.) */
-@media (max-width: 380px) {
-    .card-media {
-        height: 180px !important;
+        margin-top: 30px !important;
+        padding: 0 15px;
     }
     
-    .hero h1 {
-        font-size: 1.8rem !important;
+    .maintenance-footer .btn {
+        width: 100%;
+        display: block;
+        text-align: center;
     }
+
+    /* 5. ГАЛЕРЕЯ */
+    .gallery-arrow { padding: 10px; font-size: 30px; }
+}
+
+/* Для самых маленьких экранов */
+@media (max-width: 480px) {
+    .maintenance-features-row { padding-left: 10%; }
+    .hero h1 { font-size: 1.8rem; }
 }
