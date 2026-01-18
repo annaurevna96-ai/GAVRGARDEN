@@ -1,0 +1,190 @@
+:root {
+    --primary: #4a6741;
+    --dark: #2c3e2d;
+    --light: #f4f7f2;
+    --text: #333;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Защита от горизонтальной прокрутки */
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+.bg-light { background-color: var(--light); }
+.section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; color: var(--dark); }
+
+/* ШАПКА */
+header { background: #fff; padding: 20px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+nav { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+.logo-wrapper {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo { font-size: 24px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; font-weight: 400; }
+.logo b { font-weight: 700; }
+
+.logo-subtitle {
+    font-size: 10px;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    opacity: 0.8;
+    margin-top: 2px;
+}
+
+.nav-links { display: flex; list-style: none; }
+.nav-links li { margin-left: 30px; }
+.nav-links a { text-decoration: none; color: var(--dark); transition: 0.3s; }
+.nav-links a:hover { color: var(--primary); }
+
+/* HERO */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('15.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.btn {
+    display: inline-block; background: var(--primary); color: #fff;
+    padding: 15px 35px; text-decoration: none; border-radius: 50px;
+    transition: 0.3s; border: none; cursor: pointer; font-weight: 700;
+}
+.btn:hover { background: var(--dark); transform: translateY(-3px); }
+
+.hero .btn { margin-top: 30px; }
+
+/* ПОРТФОЛИО */
+.project-block { margin-bottom: 60px; }
+.project-header h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 5px; }
+.slider-wrapper { position: relative; }
+.project-slider { display: flex; overflow-x: auto; gap: 15px; scroll-snap-type: x mandatory; padding: 10px 0; scrollbar-width: none; }
+.project-slider::-webkit-scrollbar { display: none; }
+.project-slide { flex: 0 0 300px; height: 200px; scroll-snap-align: start; border-radius: 10px; overflow: hidden; }
+.project-slide img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: 0.3s; }
+
+.slider-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--primary); color: white; border: none;
+    width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 5;
+}
+.slider-btn.prev { left: -20px; }
+.slider-btn.next { right: -20px; }
+
+/* ЦЕНЫ */
+.price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.price-card { background: #fff; padding: 30px; border-radius: 15px; text-align: center; border: 1px solid #eee; }
+.price-card.featured { border: 2px solid var(--primary); transform: scale(1.03); }
+.cost { font-size: 1.5rem; font-weight: bold; color: var(--primary); margin: 15px 0; }
+.price-features { list-style: none; text-align: left; margin-bottom: 20px; font-size: 0.9rem; }
+.price-features li::before { content: "✔ "; color: var(--primary); margin-right: 5px; }
+
+/* КОНТАКТЫ */
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.contact-item { display: flex; align-items: center; text-decoration: none; color: var(--dark); margin-bottom: 15px; font-weight: 700; }
+.contact-item span { margin-right: 10px; font-size: 1.2rem; }
+form { display: flex; flex-direction: column; gap: 10px; }
+input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+
+/* ФУТЕР - ПОЛНОСТЬЮ ИСПРАВЛЕННЫЙ */
+footer {
+    background: var(--dark);
+    color: white;
+    width: 100%;
+    margin-top: 60px;
+    padding-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    align-items: start;
+    max-width: 1100px; /* Контент по центру */
+    margin: 0 auto;    /* Центрирование */
+    padding: 0 20px 40px 20px;
+}
+
+.footer-logo { display: flex; flex-direction: column; gap: 10px; }
+
+.footer-nav h4, .footer-social h4 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-nav ul { list-style: none; }
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: 0.3s;
+    line-height: 2.2;
+    display: block;
+}
+.footer-nav a:hover { opacity: 1; padding-left: 5px; }
+
+.social-links { display: flex; gap: 15px; }
+
+.social-icon {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    background: rgba(255,255,255,0.1);
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+.social-icon:hover { background: var(--primary); transform: translateY(-3px); }
+
+.footer-bottom {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+/* ЛАЙТБОКС */
+.lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
+.lightbox img { max-width: 90%; max-height: 80%; }
+
+/* МОБИЛЬНАЯ АДАПТАЦИЯ */
+@media (max-width: 768px) {
+    .nav-links, .slider-btn { display: none; }
+    .hero h1 { font-size: 2.2rem; }
+    .contact-layout { grid-template-columns: 1fr; }
+    .project-slide { flex: 0 0 90%; }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .social-links { justify-content: center; }
+}

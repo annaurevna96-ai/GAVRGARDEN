@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ландшафтный дизайн - Портфолио</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#" class="logo-wrapper">
+                <div class="logo">GAVR<b>GARDEN</b></div>
+                <div class="logo-subtitle">Студия ландшафтного дизайна Анны Гавриловой</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#prices">Цены</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section class="hero">
+    <h1>Сады, меняющие жизнь</h1>
+    <p>Профессиональное проектирование участков по всей России</p>
+    <a href="#projects" class="btn">Посмотреть работы</a>
+</section>
+    <section id="portfolio" class="container">
+        <h2 class="section-title">Мои проекты</h2>
+
+        <div class="project-block">
+            <div class="project-header">
+                <h3>Современный семейный сад в д.Полушкино</h3>
+                <p>Продуманное зонирование участка 7 соток: функциональная зона патио с костровой зоной, ландшафтное освещение и интеграция огорода в общую стилистику сада.</p>
+            </div>
+            <div class="slider-wrapper">
+                <button class="slider-btn prev" onclick="scrollProject(this, -1)">&#10094;</button>
+                <button class="slider-btn next" onclick="scrollProject(this, 1)">&#10095;</button>
+                <div class="project-slider">
+                    <div class="project-slide"><img src="1.jpg" alt="Ландшафтный дизайн с декоративным прудом и современной баней для отдыха" openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="2.jpg" alt="Уютный уголок в саду со столиком для завтраков в окружении зелени" onclick="openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="3.jpg" alt="Зона патио с костровой чашей и деревянными креслами в вечернем саду около террассы" onclick="openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="4.jpg" alt="Зона патио с костровой чашей и деревянными креслами в ландшафтном проекте" openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="5.jpg" alt="Новогодняя ель на участке с и зона огорода за плотной живой изгородью" onclick="openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="6.jpg" alt="Детская игровая зона на газоне и теплица за плотной живой изгородью" onclick="openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="7.jpg" alt="Оформление парадного входа в дом: пошаговая дорожка и декоративные растения" onclick="openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="8.jpg" alt="3D-планировка участка: зонирование дома, беседки, бани с террасой, огорода и зоны отдыха" onclick="openLightbox(this.src)"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <div class="project-header">
+                <h3>Приватная усадьба в лесном массиве с.Маруха</h3>
+                <p>Создание целостного ансамбля из основного дома и банного комплекса на лесном участке. Проект включает в себя декоративный пруд с мостиком, зону спа под открытым небом и уютное кострище для вечернего отдыха в кругу семьи.</p>
+            </div>
+            <div class="slider-wrapper">
+                <button class="slider-btn prev" onclick="scrollProject(this, -1)">&#10094;</button>
+                <button class="slider-btn next" onclick="scrollProject(this, 1)">&#10095;</button>
+                <div class="project-slider">
+                    <div class="project-slide"><img src="9.jpg" alt="Зона спа на открытой террасе с уличной купелью, шезлонгами и садовым зонтом" onclick="openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="10.jpg" alt="Планировка загородного участка с парковочной зоной, прудом и густым хвойным лесом" onclick="openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="11.jpg" alt="Благоустройство площадки для барбекю с видом на современную баню и декоративные посадки" onclick="openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="12.jpg" alt="Узкая садовая дорожка вдоль деревянного дома,хозблока с элементами фасадного освещения" onclick="openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="13.jpg" alt="Ландшафтный дизайн лесного участка с домом из клееного бруса и мощеной дорожкой" onclick="openLightbox(this.src)"></div>
+                    <div class="project-slide"><img src="14.jpg" alt="Декоративный водоем с подсветкой и деревянным дугообразным мостиком в ночном саду" onclick="openLightbox(this.src)"></div>
+                </div>
+            </div>
+        </div>
+
+
+    <section id="prices" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Стоимость услуг</h2>
+            <div class="price-grid">
+                <div class="price-card">
+                     <h3>Рабочая документация</h3>
+                    <div class="cost">от 65 000 ₽</div>
+                    <ul class="price-features">
+                        <li>Генеральный план</li>
+                        <li>Разбивочный чертеж</li>
+                        <li>Проект вертикальной планировки</li>
+			<li>Схема дренажной и ливневой канализации</li>
+                        <li>План покрытий</li>
+			<li>Схема освещения</li>
+                        <li>Дендропроект</li>
+                        <li>Посадочный чертеж</li>
+                    </ul>
+                    <a href="https://t.me/redhead_garden" target="_blank" class="btn">Заказать</a>
+                </div>
+                <div class="price-card featured">
+                    <h3>Концептуальный проект</h3>
+                    <div class="cost">от 50 000 ₽</div>
+                    <ul class="price-features">
+                        <li>Анализ участка</li>
+                        <li>Подбор стилистических аналогов</li>
+                        <li>Эскиз планировочного решения</li>
+			<li>3D визуализация видовых точек</li>
+			<li>Финализация эскиза</li>
+                    </ul>
+                    <a href="tel:+79932460921" class="btn btn-outline">Заказать</a>
+                </div>
+                <div class="price-card">
+                    <h3>Всё включено</h3>
+                    <div class="cost">от 110 000 ₽</div>
+                    <ul class="price-features">
+                        <li>Всё из тарифа "Концептуальный проект" и "Рабочая документация</li>
+                        <li>3D видеопрогулка</li>
+                    </ul>
+                    <a href="https://t.me/redhead_garden" target="_blank" class="btn btn-outline">Заказать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="contact-layout">
+            <div class="contact-info">
+                <h2>Обсудим ваш будущий сад</h2>
+                <p>Оставьте заявку, и я отвечу вам в ближайшее время.</p>
+                <div class="contact-links">
+                    <a href="tel:+79932460921" class="contact-item"><span>📞</span> +7 (993) 246-09-21</a>
+                    <a href="https://t.me/redhead_garden" target="_blank" class="contact-item tg-link">
+                        <span><img src="тг.png" style="width: 24px; height: 24px;"></span> Telegram
+                    </a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="tg-form">
+                    <input type="text" id="name" placeholder="Ваше имя" required>
+                    <input type="tel" id="phone" placeholder="Ваш телефон" required>
+                    <textarea id="message" placeholder="Опишите ваш проект" rows="4"></textarea>
+                    <button type="submit" class="btn">Отправить</button>
+                </form>
+                <div id="form-status" style="margin-top: 15px; display: none; color: var(--primary); font-weight: bold;"></div>
+            </div>
+        </div>
+    </section>
+
+      <footer>
+
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="#" class="logo-wrapper">
+                    <div class="logo" style="color: white;">GAVR<b>GARDEN</b></div>
+                    <div class="logo-subtitle" style="color: white; opacity: 0.6;">Студия ландшафтного дизайна Анны Гавриловой</div>
+                </a>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="#portfolio">Портфолио</a></li>
+                    <li><a href="#prices">Услуги и цены</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Мы в сети</h4>
+                <div class="social-links">
+                    <a href="https://t.me/landscape_in_mind" target="_blank" class="social-icon">
+                        <img src="тг.png" style="width: 20px; height: 20px;">
+                    </a>
+                    <a href="tel:+79932460921" class="social-icon">📞</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Ландшафтный Дизайн. Все права защищены.
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="">
+    </div>
+
+    <script>
+        // Слайдер проектов
+        function scrollProject(button, direction) {
+            const wrapper = button.parentElement;
+            const slider = wrapper.querySelector('.project-slider');
+            const slideWidth = slider.querySelector('.project-slide').clientWidth + 15;
+            slider.scrollBy({ left: direction * slideWidth, behavior: 'smooth' });
+        }
+
+        // Лайтбокс (фото на весь экран)
+        function openLightbox(src) {
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = src;
+            lb.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // ОТПРАВКА В TELEGRAM
+        const TOKEN = "8496420537:AAGqpJo5g-6YOU6V41oinK6TOzOuSebuwxU";
+        const CHAT_ID = "6414550624";
+        const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+        document.getElementById('tg-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const msg = document.getElementById('message').value;
+
+            let textMessage = `<b>🌿 Новая заявка GAVRGARDEN</b>\n`;
+            textMessage += `<b>Имя:</b> ${name}\n`;
+            textMessage += `<b>Телефон:</b> ${phone}\n`;
+            textMessage += `<b>Сообщение:</b> ${msg}`;
+
+            axios.post(URI_API, {
+                chat_id: CHAT_ID,
+                parse_mode: 'html',
+                text: textMessage
+            })
+            .then(res => {
+                const status = document.getElementById('form-status');
+                status.innerText = "Спасибо! Заявка успешно отправлена.";
+                status.style.display = "block";
+                this.reset();
+            })
+            .catch(err => {
+                alert("Ошибка отправки. Проверьте настройки бота.");
+            });
+        });
+    </script>
+</body>
+</html>
