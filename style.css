@@ -12,7 +12,7 @@ body {
     line-height: 1.6;
     color: var(--text);
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Защита от горизонтальной прокрутки */
+    overflow-x: hidden;
 }
 
 .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
@@ -79,17 +79,55 @@ nav { display: flex; justify-content: space-between; align-items: center; max-wi
 
 /* ПОРТФОЛИО */
 .project-block { margin-bottom: 60px; }
+.project-header { margin-bottom: 20px; }
 .project-header h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 5px; }
 .slider-wrapper { position: relative; }
 .project-slider { display: flex; overflow-x: auto; gap: 15px; scroll-snap-type: x mandatory; padding: 10px 0; scrollbar-width: none; }
 .project-slider::-webkit-scrollbar { display: none; }
-.project-slide { flex: 0 0 300px; height: 200px; scroll-snap-align: start; border-radius: 10px; overflow: hidden; }
-.project-slide img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: 0.3s; }
+
+.project-slide { 
+    flex: 0 0 300px; 
+    height: 200px; 
+    scroll-snap-align: start; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    position: relative; /* Для эффекта лупы */
+}
+
+.project-slide img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    cursor: pointer; 
+    transition: 0.5s; 
+}
+
+/* Эффект лупы при наведении */
+.project-slide::after {
+    content: '🔍';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.project-slide:hover img { 
+    filter: brightness(0.6); 
+    transform: scale(1.1); 
+}
+
+.project-slide:hover::after { 
+    opacity: 1; 
+}
 
 .slider-btn {
     position: absolute; top: 50%; transform: translateY(-50%);
     background: var(--primary); color: white; border: none;
     width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 5;
+    display: flex; align-items: center; justify-content: center;
 }
 .slider-btn.prev { left: -20px; }
 .slider-btn.next { right: -20px; }
@@ -109,7 +147,7 @@ nav { display: flex; justify-content: space-between; align-items: center; max-wi
 form { display: flex; flex-direction: column; gap: 10px; }
 input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
 
-/* ФУТЕР - ПОЛНОСТЬЮ ИСПРАВЛЕННЫЙ */
+/* ФУТЕР */
 footer {
     background: var(--dark);
     color: white;
@@ -123,8 +161,8 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
     align-items: start;
-    max-width: 1100px; /* Контент по центру */
-    margin: 0 auto;    /* Центрирование */
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 0 20px 40px 20px;
 }
 
@@ -172,19 +210,66 @@ footer {
     opacity: 0.5;
 }
 
-/* ЛАЙТБОКС */
-.lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
-.lightbox img { max-width: 90%; max-height: 80%; }
+/* ГАЛЕРЕЯ (ЛАЙТБОКС) */
+.lightbox { 
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.9); 
+    z-index: 2000; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.lightbox img { 
+    max-width: 85%; 
+    max-height: 80%; 
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    font-size: 40px;
+    padding: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+.gallery-arrow:hover { background: var(--primary); }
+.prev-arrow { left: 20px; }
+.next-arrow { right: 20px; }
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.3s;
+}
+.close-btn:hover { color: var(--primary); }
 
 /* МОБИЛЬНАЯ АДАПТАЦИЯ */
 @media (max-width: 768px) {
     .nav-links, .slider-btn { display: none; }
     .hero h1 { font-size: 2.2rem; }
     .contact-layout { grid-template-columns: 1fr; }
-    .project-slide { flex: 0 0 90%; }
+    .project-slide { flex: 0 0 85%; }
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
     .social-links { justify-content: center; }
+    .gallery-arrow { padding: 10px; font-size: 30px; }
+    .prev-arrow { left: 5px; }
+    .next-arrow { right: 5px; }
 }
