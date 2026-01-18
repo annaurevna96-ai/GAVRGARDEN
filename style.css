@@ -219,3 +219,40 @@ footer { background: var(--dark); color: white; padding-top: 60px; margin-top: 6
     .maintenance-features-row { flex-direction: column; gap: 10px; align-items: center; }
     .gallery-arrow { padding: 10px; font-size: 30px; }
 }
+
+@media (max-width: 768px) {
+    /* Делаем карточки цен гибкими по высоте */
+    .price-card {
+        height: auto !important; 
+        min-height: 350px; /* Задаем минимальную, а не жесткую высоту */
+        padding: 20px 15px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    /* Убираем фиксированную высоту у контейнера с медиа (фото коры) */
+    .card-media {
+        height: 200px !important; 
+        margin-bottom: 15px !important;
+    }
+
+    /* Чтобы текст не налезал на кнопку */
+    .price-card p {
+        margin-bottom: 20px !important;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+}
+@media (max-width: 768px) {
+    .maintenance-footer {
+        margin-top: 20px !important;
+        padding: 0 10px;
+    }
+    
+    .maintenance-footer .btn {
+        width: 100%; /* На мобильном кнопка на всю ширину удобнее */
+        display: block;
+    }
+}
