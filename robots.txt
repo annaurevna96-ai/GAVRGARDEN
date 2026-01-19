@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /yandex_*.html
+
+Sitemap: https://gavrgarden.ru/sitemap.xml
+Host: https://gavrgarden.ru
