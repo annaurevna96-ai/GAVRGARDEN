@@ -212,105 +212,85 @@ footer { background: var(--dark); color: white; padding-top: 60px; margin-top: 6
 }
 
 @media (max-width: 768px) {
-    /* 1. Навигация и общие элементы */
-    .nav-links, .slider-btn { display: none; }
-    .hero h1 { font-size: 2.2rem; }
-    .contact-layout { grid-template-columns: 1fr; }
-    
-    /* 2. Слайдеры (чтобы фото не были слишком мелкими) */
-    .project-slide { flex: 0 0 85%; }
-    
-    /* 3. КАРТОЧКИ ЦЕН И ТОВАРОВ (Исправление наслоения) */
-    .price-grid { 
-        display: flex; 
-        flex-direction: column; 
-        gap: 25px; 
-    }
-
-    .price-card {
-        height: auto !important; /* Позволяем блоку растягиваться под текст */
+    /* 1. ШАПКА БЕЗ ПУСТОТ */
+    header {
+        padding: 0 !important; /* Убираем поле над логотипом */
         min-height: auto !important;
-        padding: 30px 20px !important;
-        transform: none !important; /* Убираем масштаб у featured на мобильных */
     }
 
-    .card-media {
-        height: 180px !important; /* Увеличиваем высоту фото для наглядности */
-        margin-bottom: 15px !important;
-    }
-
-    .price-card p {
-        margin-bottom: 25px !important; /* Создаем отступ перед кнопкой */
-        font-size: 1rem;
-    }
-
-    /* 4. БЛОК УХОДА И КНОПКА ПРАЙСА */
-    .maintenance-features-row { 
-        flex-direction: column; 
-        gap: 12px; 
-        align-items: flex-start; 
-        padding-left: 20%; /* Центрируем список визуально */
-    }
-
-    .maintenance-footer {
-        margin-top: 30px !important;
-        padding: 0 15px;
-    }
-    
-    .maintenance-footer .btn {
-        width: 100%;
-        display: block;
-        text-align: center;
-    }
-
-    /* 5. ГАЛЕРЕЯ */
-    .gallery-arrow { padding: 10px; font-size: 30px; }
-}
-
-@media (max-width: 768px) {
-    /* Настраиваем шапку, чтобы логотип и меню были друг под другом */
     nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 10px 0;
-    }
-
-    /* Делаем список ссылок горизонтальным скроллом, если их много */
-    .nav-links {
-        display: flex !important; /* Показываем меню (ранее у вас стояло display: none) */
-        width: 100%;
-        justify-content: flex-start;
-        overflow-x: auto; /* Включаем прокрутку влево-вправо */
-        padding: 5px 10px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Скрываем полосу прокрутки */
-    }
-
-    .nav-links::-webkit-scrollbar {
-        display: none; /* Скрываем полосу прокрутки для Chrome/Safari */
-    }
-
-    .nav-links li {
-        margin: 0 10px; /* Уменьшаем отступы между пунктами */
-        white-space: nowrap; /* Запрещаем перенос текста на новую строку */
-    }
-
-    .nav-links a {
-        font-size: 14px; /* Немного уменьшаем шрифт для мобильных */
+        flex-direction: column !important; /* Лого и Меню друг под другом */
+        align-items: center !important;
+        gap: 0 !important; /* Убираем пустоту между лого и меню */
+        padding: 5px 0 !important;
     }
 
     .logo-wrapper {
         text-align: center;
+        margin-bottom: 0 !important; /* Убираем отступ снизу у логотипа */
+        line-height: 1 !important;
     }
-@media (max-width: 768px) {
-    /* 1. Уменьшаем отступы в самой шапке */
-    header {
-        padding: 10px 0 !important; /* Было 20px, делаем 10px */
-    }	
+
+    .logo {
+        font-size: 18px !important;
+        display: block;
+    }
+
+    .logo-subtitle {
+        font-size: 8px !important;
+        margin-top: 2px !important;
+        margin-bottom: 5px !important; /* Небольшой отступ до линии меню */
+    }
+
+    /* 2. МЕНЮ (НАВИГАЦИЯ) */
+    .nav-links {
+        display: flex !important;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        margin: 0 !important; /* Убираем отступы после меню */
+        padding: 5px 10px !important; 
+        list-style: none;
+        overflow-x: auto; /* Скролл, если не влезет */
+        white-space: nowrap;
+        scrollbar-width: none;
+        border-top: 1px solid rgba(0,0,0,0.05); /* Тонкая разделительная линия */
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .nav-links li {
+        margin: 0 !important;
+    }
+
+    .nav-links a {
+        font-size: 11px !important;
+        text-transform: uppercase;
+        padding: 5px 0;
+    }
+
+    /* 3. ОСТАЛЬНЫЕ ЭЛЕМЕНТЫ */
+    .hero h1 { font-size: 2.2rem; }
+    .slider-btn { display: none; }
+    .project-slide { flex: 0 0 85%; }
+    
+    .price-grid { display: flex; flex-direction: column; gap: 25px; }
+    .price-card { height: auto !important; padding: 30px 20px !important; }
+    .card-media { height: 180px !important; margin-bottom: 15px !important; }
+
+    .maintenance-features-row { 
+        flex-direction: column; 
+        gap: 12px; 
+        align-items: flex-start; 
+        padding-left: 20%; 
+    }
+
+    .maintenance-footer { margin-top: 20px !important; padding: 0 15px; }
+    .maintenance-footer .btn { width: 100%; display: block; text-align: center; }
 }
-/* Для самых маленьких экранов */
+
 @media (max-width: 480px) {
     .maintenance-features-row { padding-left: 10%; }
     .hero h1 { font-size: 1.8rem; }
+    .nav-links { gap: 10px; }
 }
